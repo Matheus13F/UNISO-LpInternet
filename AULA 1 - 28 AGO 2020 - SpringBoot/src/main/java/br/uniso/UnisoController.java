@@ -1,19 +1,38 @@
 package br.uniso;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 //classe de controle
 //ela pega a requisição http do brwouswe
 //e processa para devolver uma resposta
 
+
+
 @RestController("/uniso/")
 public class UnisoController {
 
-    @RequestMapping("hello")
-    public String helloWorld() {
-        return "Essa foi a primeira aula, expusemos uma API GET em Java com Sping Boot." + "Coloque tudo no linkedin";
+    ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+
+    @PostMapping("criarAluno")
+    public boolean criarAluno(@RequestBody  Aluno aluno) {
+
+        alunos.add(aluno);
+        return true;
+    }
+
+    @GetMapping("hello")
+    public String helloWorld(@RequestParam String nome, @RequestParam String idade) {
+
+        return "Ola pessoa chamada " + nome + " e idade de apenas " + idade;
+    }
+
+    @GetMapping("/alunos")
+    public ArrayList<Aluno> getAlunos() {
+
+        return alunos;
     }
 
 }

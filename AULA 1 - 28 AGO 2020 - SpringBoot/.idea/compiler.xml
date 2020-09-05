@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AULA 1 - 28 AGO 2020 - SpringBoot" />
         <module name="projetoAula1LPPI" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AULA 1 - 28 AGO 2020 - SpringBoot" options="-parameters" />
       <module name="projetoAula1LPPI" options="-parameters" />
     </option>
   </component>
